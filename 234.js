@@ -1,4 +1,4 @@
 function setBool(ee,val) {
     let e = entry();
-    e.field('visible',val);
+    e.set('visible',val);
 } 
