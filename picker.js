@@ -1,4 +1,16 @@
-/** Start Picker */
+/** Start Picker 
+
+//example of a call
+const ob = {
+  lbid: '',     // library id (optional key)
+  lbnm: '',  // library title (optional key)
+  to: selectedEntries(),  // object entry() or array
+  fld: 'icon',  // field name
+};
+
+dataPicker(ob);
+
+*/
 function dataPicker(ob) {
   const keyOk = (key) => {
     return Object.hasOwn(ob,key);
