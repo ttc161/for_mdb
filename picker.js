@@ -78,8 +78,11 @@ function showPicker(ob) {
         .icon('nova:cursor-touch-1.png')
         .action(() => {
           ob.icon = ic;
-          msg.ui(ui().image(ic)
-            .height(256),ic_str);   
+          dialog()
+            .title(ic_str)
+            .view(ui().image(ic).height(256))
+            .positiveButton('OK')
+            .show();
         })
      );
   });
@@ -98,9 +101,6 @@ function showPicker(ob) {
 dialog()
   .view(picker)
   .positiveButton('Ok', () => {
-    delete ob.ee;
-    msg.json(ob);
-
     if (ob.to && ob.icon) {
       if (ob.to.length > 0) {
         ob.to.forEach(e => e.set(ob.fld, ob.icon));
