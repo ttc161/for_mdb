@@ -73,7 +73,12 @@ function helpUi(obe, pics) {
     if (hasFontParams) {
       const fontConfig = {};
       if (obe.size > 0) fontConfig.size = obe.size;
-      if (obe.color) fontConfig.color = obe.color;
+      if (obe.color_hex) { 
+        let hex = '#' + obe.color_hex.replace(/^#/, '');
+        fontConfig.color = hex;
+      } else if (obe.color) {
+        fontConfig.color = obe.color;
+      }
       if (obe.style) fontConfig.style = obe.style;
       result = result.font(fontConfig);
     }
