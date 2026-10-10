@@ -73,7 +73,7 @@ function helpUi(obe, pics) {
     if (hasFontParams) {
       const fontConfig = {};
       if (obe.size > 0) fontConfig.size = obe.size;
-      if (obe.color_hex) { 
+      if (obe.color_hex && isHex6(obe.color_hex)) {
         let hex = '#' + obe.color_hex.replace(/^#/, '');
         fontConfig.color = hex;
       } else if (obe.color) {
@@ -116,4 +116,10 @@ function helpUi(obe, pics) {
     ]);
   }
   return result;
+}
+
+function isHex6(str) {
+  if (typeof str !== 'string') return false;
+  const trimmed = str.trim();
+  return /^[0-9a-fA-F]{6}$/.test(trimmed);
 }
